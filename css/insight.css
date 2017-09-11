@@ -1,3 +1,6 @@
+body {
+  background: url("/images/timg.jpg");
+}
 .ins-search {
   display: none;
 }
