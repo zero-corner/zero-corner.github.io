@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2017/9 | 且听风吟</title>
+  <title>操作系统-进程 | 且听风吟</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="稷下湖畔,畅谈技术的IT女">
-<meta property="og:type" content="website">
-<meta property="og:title" content="且听风吟">
-<meta property="og:url" content="http://yoursite.com/archives/2017/09/index.html">
+  <meta name="description" content="进程的三种状态: 就绪状态,执行状态,堵塞状态 进程所请求的一次I/O完成后,将使进程状态从堵塞状态转变为就绪状态 操作系统中处于执行状态的进程时间片用完后,进程状态由执行状态转变为就绪状态 操作系统中处于执行状态的进程发出I/O请求后,进程状态由执行状态转变为堵塞状态 进程的三种基本状态中,就绪状态是指进程分配到除CPU以外的所有进程 进程同步机制应该遵循的准则: 闲则让进,忙则等待,有限等待">
+<meta name="keywords" content="操作系统">
+<meta property="og:type" content="article">
+<meta property="og:title" content="操作系统-进程">
+<meta property="og:url" content="http://yoursite.com/2017/09/13/操作系统-进程/index.html">
 <meta property="og:site_name" content="且听风吟">
-<meta property="og:description" content="稷下湖畔,畅谈技术的IT女">
+<meta property="og:description" content="进程的三种状态: 就绪状态,执行状态,堵塞状态 进程所请求的一次I/O完成后,将使进程状态从堵塞状态转变为就绪状态 操作系统中处于执行状态的进程时间片用完后,进程状态由执行状态转变为就绪状态 操作系统中处于执行状态的进程发出I/O请求后,进程状态由执行状态转变为堵塞状态 进程的三种基本状态中,就绪状态是指进程分配到除CPU以外的所有进程 进程同步机制应该遵循的准则: 闲则让进,忙则等待,有限等待">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-09-14T04:47:21.213Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="且听风吟">
-<meta name="twitter:description" content="稷下湖畔,畅谈技术的IT女">
+<meta name="twitter:title" content="操作系统-进程">
+<meta name="twitter:description" content="进程的三种状态: 就绪状态,执行状态,堵塞状态 进程所请求的一次I/O完成后,将使进程状态从堵塞状态转变为就绪状态 操作系统中处于执行状态的进程时间片用完后,进程状态由执行状态转变为就绪状态 操作系统中处于执行状态的进程发出I/O请求后,进程状态由执行状态转变为堵塞状态 进程的三种基本状态中,就绪状态是指进程分配到除CPU以外的所有进程 进程同步机制应该遵循的准则: 闲则让进,忙则等待,有限等待">
   
     <link rel="alternative" href="/atom.xml" title="且听风吟" type="application/atom+xml">
   
@@ -157,36 +159,70 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-操作系统-进程" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      操作系统-进程
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/13/操作系统-进程/" class="archive-article-date">
+
+        
+        <a href="/2017/09/13/操作系统-进程/" class="archive-article-date">
   	<time datetime="2017-09-13T13:43:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-13</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/13/操作系统-进程/">操作系统-进程</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>进程的三种状态: <u>就绪状态,执行状态,堵塞状态</u></li>
+<li>进程所请求的一次I/O完成后,将使进程状态从<u>堵塞状态</u>转变为<u>就绪状态</u></li>
+<li>操作系统中处于执行状态的进程时间片用完后,进程状态由<u>执行状态</u>转变为<u>就绪状态</u></li>
+<li>操作系统中处于执行状态的进程发出I/O请求后,进程状态由<u>执行状态</u>转变为<u>堵塞状态</u></li>
+<li>进程的三种基本状态中,就绪状态是指进程分配到除CPU以外的所有进程</li>
+<li>进程同步机制应该遵循的准则: <u>闲则让进</u>,<u>忙则等待</u>,<u>有限等待</u>,<u>让权等待</u></li>
+<li>同步机制准则中,<u>让权等待</u>是指进程不能进入自己的临界区,应立即释放处理机</li>
+<li><u>进程,文件,线程</u>在系统中存在的唯一标识:<u>PCB ,FCB ,TCB</u></li>
+<li>在文件系统中,文件属性信息存储在数据结构 <u>FCB</u>中</li>
+<li>操作系统利用数据结构 PCB 描述进程的基本情况和活动过程</li>
+<li>系统将被终端进程的CPU现场信息保存在该进程的数据结构 PCB中</li>
+<li>在操作系统中,实现进程的同步的机制:<u>信号量机制</u>和<u>管程机制</u></li>
+<li>信号量机制是一种卓有成效的进程同步工具</li>
+</ul>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -198,99 +234,106 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/09/13/操作系统-进程/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/12/操作系统-引论/" class="archive-article-date">
-  	<time datetime="2017-09-12T11:27:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-12</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2017/09/12/操作系统-引论/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">操作系统-引论</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/12/操作系统-引论/">操作系统-引论</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">操作系统</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/11/My-first-Post/" class="archive-article-date">
-  	<time datetime="2017-09-11T11:04:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/11/My-first-Post/">My first Post</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">First Post</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -313,8 +356,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
