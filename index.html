@@ -187,8 +187,10 @@
       
         <h3 id="for循环与可迭代对象"><a href="#for循环与可迭代对象" class="headerlink" title="for循环与可迭代对象"></a>for循环与可迭代对象</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">for i in [1,2,3]:</div><div class="line">     print(i)</div></pre></td></tr></table></figure>
 <p><code>1 2 3</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">obj =&#123;&quot;a&quot;:123,&quot;b&quot;:456&#125;</div><div class="line">       for k in obj:</div><div class="line">           print(k)</div></pre></td></tr></table></figure></p>
-<p><code>b a</code><br>   这些可以用在 for 语句进行循环的对象就是可迭代对象。除了内置的数据类型（列表、元组、字符串、字典等）可以通过 for 语句进行迭代，我们也可以自己创建一个容器，包含一系列元素，可以通过 for 语句依次循环取出每一个元素，这种容器就是迭代器（iterator）。除了用 for 遍历，迭代器还可以通过 next() 方法逐一读取下一个元素。要创建一个迭代器有3种方法，其中前两种分别是：<br>  1.为容器对象添加 <strong>iter</strong>() 和 <strong>next</strong>() 方法（Python 2.7 中是 next()）；<strong>iter</strong>() 返回迭代器对象本身 self，<strong>next</strong>() 则返回每次调用 next() 或迭代时的元素；<br>  2.内置函数 iter() 将可迭代对象转化为迭代器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"># iter(IterableObject)</div><div class="line">ita = iter([1, 2, 3])</div><div class="line">print(type(ita))</div><div class="line"> </div><div class="line">print(next(ita))</div><div class="line">print(next(ita))</div><div class="line">print(next(ita))</div><div class="line"> </div><div class="line"># Create iterator Object</div><div class="line">class Container:</div><div class="line">    def __init__(self, start = 0, end = 0):</div><div class="line">        self.start = start</div><div class="line">        self.end = end</div><div class="line">    def __iter__(self):</div><div class="line">        print(&quot;[LOG] I made this iterator!&quot;)</div><div class="line">        return self</div><div class="line">    def __next__(self):</div><div class="line">        print(&quot;[LOG] Calling __next__ method!&quot;)</div><div class="line">        if self.start &lt; self.end:</div><div class="line">            i = self.start</div><div class="line">            self.start += 1</div><div class="line">            return i</div><div class="line">        else:</div><div class="line">            raise StopIteration()</div><div class="line">c = Container(0, 5)</div><div class="line">for i in c:</div><div class="line">    print(i)</div></pre></td></tr></table></figure></p>
-
+<p><code>b a</code><br>
+        
+          <a class="article-more-a" href="/2017/09/17/python-迭代器与生成器/#more">more >></a>
+        
       
 
       
@@ -270,17 +272,10 @@
 <li>进程所请求的一次I/O完成后,将使进程状态从<u>堵塞状态</u>转变为<u>就绪状态</u></li>
 <li>操作系统中处于执行状态的进程时间片用完后,进程状态由<u>执行状态</u>转变为<u>就绪状态</u></li>
 <li>操作系统中处于执行状态的进程发出I/O请求后,进程状态由<u>执行状态</u>转变为<u>堵塞状态</u></li>
-<li>进程的三种基本状态中,就绪状态是指进程分配到除CPU以外的所有进程</li>
-<li>进程同步机制应该遵循的准则: <u>闲则让进</u>,<u>忙则等待</u>,<u>有限等待</u>,<u>让权等待</u></li>
-<li>同步机制准则中,<u>让权等待</u>是指进程不能进入自己的临界区,应立即释放处理机</li>
-<li><u>进程,文件,线程</u>在系统中存在的唯一标识:<u>PCB ,FCB ,TCB</u></li>
-<li>在文件系统中,文件属性信息存储在数据结构 <u>FCB</u>中</li>
-<li>操作系统利用数据结构 PCB 描述进程的基本情况和活动过程</li>
-<li>系统将被终端进程的CPU现场信息保存在该进程的数据结构 PCB中</li>
-<li>在操作系统中,实现进程的同步的机制:<u>信号量机制</u>和<u>管程机制</u></li>
-<li>信号量机制是一种卓有成效的进程同步工具</li>
 </ul>
-
+        
+          <a class="article-more-a" href="/2017/09/13/操作系统-进程/#more">more >></a>
+        
       
 
       
@@ -360,16 +355,10 @@
 <li>操作系统的基本特征: <u>并发性,虚拟性,共享性,异步性 </u></li>
 <li><u>并发性和共享性</u> 是多用户,多任务操作系统中最基本的两个特征</li>
 <li><u>并发性</u> 是多任务，多用户操作系统中最重要的特征</li>
-<li>在OS的基本特征中,<u>异步性</u> 是指进程以不可预知的速度向前推进的</li>
-<li>操作系统的基本类型: <u>批处理系统,分时系统,实时系统</u></li>
-<li>在操作系统的基本类型中, <u>可靠性</u> 是实时系统最重要的特征</li>
-<li>操作系统的主要功能: <u>处理机管理,存储器管理,设备管理,文件管理,接口管理</u></li>
-<li>操作系统的用户接口: <u>程序接口,图形用户接口,文件接口</u></li>
-<li>在操作系统接口中: <u>程序接口</u>亦成为<u>程序调用</u></li>
-<li>UNIX系统的本质特征(英文缩写): <u>OSI</u></li>
-<li>UNIX系统的内核结构可分为两大部分: <u>进程控制子系统,文件子系统</u></li>
 </ul>
-
+        
+          <a class="article-more-a" href="/2017/09/12/操作系统-引论/#more">more >></a>
+        
       
 
       
@@ -601,11 +590,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
+                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
             
             <div class="clearfix"></div>
